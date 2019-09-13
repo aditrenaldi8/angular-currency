@@ -1,7 +1,9 @@
 <div *ngIf="!loading" class="container">
   <div class="panel">
     <form [formGroup]="form" class="form-group">
-      <label> <b>{{ data?.base}} </b></label> : <label> <b>{{form.controls.base.value}} </b></label>
+      <div class="margin-30 base">
+        <label> <b>{{ data?.base}} </b></label> : <label> <b>{{form.controls.base.value}} </b></label>
+      </div>
 
       <div class="margin-10" *ngFor="let FG of formArray.controls; let i=index">
           <app-currency 
