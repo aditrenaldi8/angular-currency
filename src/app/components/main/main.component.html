@@ -1,0 +1,23 @@
+<div *ngIf="!loading" class="container">
+  <div class="panel">
+    <form [formGroup]="form" class="form-group">
+      <label> <b>{{ data?.base}} </b></label> : <label> <b>{{form.controls.base.value}} </b></label>
+
+      <div class="margin-10" *ngFor="let FG of formArray.controls; let i=index">
+          <app-currency 
+            [parentFG]="FG"
+            [index]="i"
+            (onDeleteForm)="deleteForm($event)" >
+        </app-currency>
+      </div>
+
+      <button class="btn btn-sm btn-info margin-10" *ngIf="!form.controls.isAdditional.value" (click)="setAdditional()"> (+) Add More Currencies </button>
+
+      <div *ngIf="form.controls.isAdditional.value">
+        <input  type="text" formControlName="additional" placeholder="(+) Add More Currencies">
+        <button class="btn btn-sm btn-success " (click)="addForm()"> Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
+ 
